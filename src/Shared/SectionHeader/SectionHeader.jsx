@@ -8,7 +8,7 @@ const SectionHeader = ({mini,heading}) => {
             {mini}
           </p>
           <div className="bg-[#E8E8E8] h-1"></div>
-          <h2 className="text-4xl">{heading}</h2>
+          <h2 className="text-4xl uppercase">{heading}</h2>
           <div className="bg-[#E8E8E8] h-1"></div>
         </div>
       </div>

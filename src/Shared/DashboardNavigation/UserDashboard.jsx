@@ -1,6 +1,6 @@
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { FaRegGrinStars } from "react-icons/fa";
-import { IoMdHome } from "react-icons/io";
+
 import { IoCartOutline } from "react-icons/io5";
 import { MdHomeWork, MdOutlinePayment } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
