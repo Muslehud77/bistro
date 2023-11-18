@@ -14,52 +14,72 @@ import Secret from '../Pages/Secret';
 import Cart from '../Pages/Dashboard/Cart/Cart';
 import Dashboard from '../Layout/Dashboard';
 import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
+import AdminRoute from '../PrivateRoute/AdminRoute';
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
-        {
-            path: '/',
-            element:<Home></Home>
-        },
-        {
-            path: '/menu',
-            element:<Menu></Menu>
-        },
-        {
-            path: '/order/:category',
-            element:<Order></Order>
-        },
-        {
-            path: '/login',
-            element:<PrivateForLogin><Login></Login></PrivateForLogin>
-        },
-        {
-            path: '/register',
-            element:<PrivateForLogin><Register></Register></PrivateForLogin>
-        },
-        {
-            path: '/secret',
-            element:<Private><Secret></Secret></Private>
-        },
-    ]
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/menu",
+        element: <Menu></Menu>,
+      },
+      {
+        path: "/order/:category",
+        element: <Order></Order>,
+      },
+      {
+        path: "/login",
+        element: (
+          <PrivateForLogin>
+            <Login></Login>
+          </PrivateForLogin>
+        ),
+      },
+      {
+        path: "/register",
+        element: (
+          <PrivateForLogin>
+            <Register></Register>
+          </PrivateForLogin>
+        ),
+      },
+      {
+        path: "/secret",
+        element: (
+          <Private>
+            <Secret></Secret>
+          </Private>
+        ),
+      },
+    ],
   },
   {
-    path: '/dashboard',
-    element: <Private><Dashboard></Dashboard></Private>,
-    children:[
-        {
-            path: '/dashboard/cart',
-            element: <Cart></Cart>
-        },
-        //admin routes
-        {
-            path: '/dashboard/users',
-            element: <AllUsers></AllUsers>
-        },
-    ]
+    path: "/dashboard",
+    element: (
+      <Private>
+        <Dashboard></Dashboard>
+      </Private>
+    ),
+    children: [
+      {
+        path: "/dashboard/cart",
+        element: <Cart></Cart>,
+      },
+      //admin routes
+      {
+        path: "/dashboard/users",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+    ],
   },
-  
-])
+]);

@@ -5,12 +5,13 @@ import { IoMdHome } from "react-icons/io";
 import UserDashboard from "../Shared/DashboardComponents/UserDashboard";
 import AdminDashboard from "../Shared/DashboardComponents/AdminDashboard";
 import { FaEnvelope } from "react-icons/fa";
+import useAdmin from "../Hooks/useAdmin";
 
 
 const Dashboard = () => {
 
   // TODO: have to determine weather the user is admin or not from database
-  const isAdmin = true
+  const [isAdmin] = useAdmin()
 
   return (
     <div className="flex">
