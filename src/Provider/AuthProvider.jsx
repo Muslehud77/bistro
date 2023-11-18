@@ -42,13 +42,13 @@ const googleLogin =()=>{
 useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth,currentUser=>{
         setUser(currentUser)
-        console.log('Current user', currentUser)
+   
 
         if(currentUser){
             const userInfo = {email:currentUser.email}
             axiosPublic.post('/jwt',userInfo)
             .then(res=>{
-                console.log(res.data);
+                
                 localStorage.setItem('token', res.data.token);
             })
         }else{
