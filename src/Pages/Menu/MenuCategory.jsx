@@ -13,7 +13,7 @@ const MenuCategory = ({items,title,img}) => {
               <MenuItems key={menu._id} menu={menu}></MenuItems>
             ))}
           </div>
-          <Link to={`/order${title? '/'+title : ''}`}>
+          <Link to={`/order${title? '/'+title : '/'+'All'}`}>
             <button className="btn bg-white  border-b-2 border-b-black outline-none">
               Order your favorite food
             </button>

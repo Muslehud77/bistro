@@ -4,6 +4,7 @@ import SectionHeader from "../../../Shared/SectionHeader/SectionHeader";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import  Swal  from "sweetalert2/dist/sweetalert2";
 import { CiEdit } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
 
@@ -82,12 +83,12 @@ const ManageItems = () => {
                      </td>
                      <td>${item.price}</td>
                      <th>
-                       <button
-                         onClick={() => handleDelete(item._id)}
+                       <Link
+                        to={`/dashboard/edit/${item._id}`}
                          className="btn text-white text-xl bg-[#D1A054]"
                        > 
                          <CiEdit />
-                       </button>
+                       </Link>
                      </th>
                      <th>
                        <button

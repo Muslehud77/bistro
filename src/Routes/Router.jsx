@@ -17,8 +17,11 @@ import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
 import AdminRoute from '../PrivateRoute/AdminRoute';
 import AddItem from '../Pages/Dashboard/AddItem/AddItem';
 import ManageItems from '../Pages/Dashboard/ManageItems/ManageItems';
+import EditItem from '../Pages/Dashboard/EditItem/EditItem';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 export const router = createBrowserRouter([
+ 
   {
     path: "/",
     element: <Main></Main>,
@@ -95,6 +98,15 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <ManageItems></ManageItems>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/edit/:id",
+       
+        element: (
+          <AdminRoute>
+            <EditItem></EditItem>
           </AdminRoute>
         ),
       },
