@@ -18,10 +18,11 @@ import AdminRoute from '../PrivateRoute/AdminRoute';
 import AddItem from '../Pages/Dashboard/AddItem/AddItem';
 import ManageItems from '../Pages/Dashboard/ManageItems/ManageItems';
 import EditItem from '../Pages/Dashboard/EditItem/EditItem';
-import useAxiosSecure from '../Hooks/useAxiosSecure';
+import Payment from '../Pages/Dashboard/Payment/Payment';
+import PaymentHistory from '../Pages/Dashboard/PaymentHistory/PaymentHistory';
+
 
 export const router = createBrowserRouter([
- 
   {
     path: "/",
     element: <Main></Main>,
@@ -76,6 +77,14 @@ export const router = createBrowserRouter([
         path: "/dashboard/cart",
         element: <Cart></Cart>,
       },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>,
+      },
+      {
+        path: "/dashboard/payment-history",
+        element: <PaymentHistory></PaymentHistory>,
+      },
       //admin routes
       {
         path: "/dashboard/users",
@@ -103,7 +112,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/edit/:id",
-       
+
         element: (
           <AdminRoute>
             <EditItem></EditItem>

@@ -12,6 +12,7 @@ import HelmetProvider from "../../Shared/Helmet/Helmet";
 const Order = () => {
   const categories = ['All','Salad','Pizza',"Soup",'Dessert','Drinks']
   const {category} = useParams()
+  
   const initialIndex = categories.indexOf(category)
   const [tabIndex, setTabIndex] = useState(initialIndex);
 

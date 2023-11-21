@@ -3,6 +3,7 @@ import useCart from "../../../Hooks/useCart";
 import SectionHeader from "../../../Shared/SectionHeader/SectionHeader";
 import { IoTrashBin } from "react-icons/io5";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -42,7 +43,9 @@ const Cart = () => {
       <div className="flex justify-between">
         <h2 className="text-3xl mt-2">Total Orders : {cart.length}</h2>
         <h2 className="text-3xl mt-2">Total Price : {totalPrice.toFixed(2)}</h2>
-        <button className="btn bg-[#D1A054] text-white">Pay</button>
+        <Link disabled={!cart.length} to={"/dashboard/payment"} className="btn bg-[#D1A054] text-white">
+          Pay
+        </Link>
       </div>
 
       <div>
