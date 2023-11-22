@@ -4,14 +4,16 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import UserDashboard from "../Shared/DashboardNavigation/UserDashboard";
 import AdminDashboard from "../Shared/DashboardNavigation/AdminDashboard";
-import { FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaSignInAlt } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
+import useContextInfo from "../Hooks/useContextInfo";
 
 
 const Dashboard = () => {
 
   // TODO: have to determine weather the user is admin or not from database
   const [isAdmin] = useAdmin()
+  const {logout} = useContextInfo()
 
   return (
     <div className="flex">
@@ -41,6 +43,12 @@ const Dashboard = () => {
               <FaEnvelope className="text-xl" />
               Contact
             </NavLink>
+          </li>
+          <li>
+            <button onClick={logout}>
+              <FaSignInAlt className="text-xl" />
+           Logout
+            </button>
           </li>
         </ul>
       </div>

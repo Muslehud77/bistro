@@ -10,7 +10,7 @@ const AdminDashboard = () => {
     return (
       <ul className="menu space-y-2">
         <li>
-          <NavLink className="" to={"/dashboard/home"}>
+          <NavLink className="" to={"/dashboard/admin-home"}>
             <MdHomeWork className="text-xl" />
             Admin Home
           </NavLink>

@@ -4,31 +4,48 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { IoCartOutline } from "react-icons/io5";
 import useCart from "../../Hooks/useCart";
+import useAdmin from './../../Hooks/useAdmin';
 const Navbar = () => {
 
   const {user,logout} = useContext(AuthContext)
+const [isAdmin] = useAdmin()
 
   const [cart] = useCart()
  
   const links = (
     <>
-      <li >
-       
-        <NavLink className="hover:text-white" to={"/"}>Home</NavLink>
+      <li>
+        <NavLink className="hover:text-white" to={"/"}>
+          Home
+        </NavLink>
       </li>
-      <li >
-       
-        <NavLink className="hover:text-white" to={"/menu"}>Menu</NavLink>
+      <li>
+        <NavLink className="hover:text-white" to={"/menu"}>
+          Menu
+        </NavLink>
       </li>
-      <li >
-       
-       <NavLink className="hover:text-white" to={"/order/All"}>Order</NavLink>
+      <li>
+        <NavLink className="hover:text-white" to={"/order/All"}>
+          Order
+        </NavLink>
       </li>
-      <li >
-       
-       <NavLink className="hover:text-white" to={"/secret"}>Secret</NavLink>
-      </li>
-     
+      {user ? (
+        isAdmin ? (
+          <li>
+            <NavLink className="hover:text-white" to={"/dashboard/admin-home"}>
+              Dashboard
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <NavLink className="hover:text-white" to={"/dashboard/user-home"}>
+             Profile
+            </NavLink>
+          </li>
+        )
+      ) : (
+        ""
+      )}
     </>
   );
 

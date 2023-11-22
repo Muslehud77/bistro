@@ -3,7 +3,7 @@ import SectionHeader from "../../../Shared/SectionHeader/SectionHeader";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "./CheckOutForm";
 
-// Todo: add publishable key
+
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_Pk)
 
 const Payment = () => {

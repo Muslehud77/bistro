@@ -8,8 +8,9 @@ export const axiosSecure = axios.create({
 })
 
 const useAxiosSecure = () => {
+
     const navigate = useNavigate()
-    const {logout} = useContextInfo()
+    const {logout,user} = useContextInfo()
 
     axiosSecure.interceptors.request.use(
       (config) => {
@@ -29,8 +30,10 @@ const useAxiosSecure = () => {
     (error) => {
         const response = error.response.status
         if (response === 401 || response === 403) {
-            navigate("/login");
-          logout();
+          //  if(user){
+          //    navigate("/login");
+          //    logout();
+          //  }
           
         }
         console.log('status err in the interceptor',response);

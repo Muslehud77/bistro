@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCart from "../../../Hooks/useCart";
 import useContextInfo from "../../../Hooks/useContextInfo";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = () => {
     const stripe = useStripe()
@@ -17,7 +18,7 @@ const CheckOutForm = () => {
     const axiosSecure = useAxiosSecure()
     const [cart,refetch,amount] = useCart()
 
-  
+    const navigate = useNavigate()
 
     
 
@@ -104,6 +105,7 @@ const handleSubmit = async e =>{
         });
         refetch()
          setTransactionId(paymentIntent.id);
+         navigate('/dashboard/payment-history');
         }
       })
     }
