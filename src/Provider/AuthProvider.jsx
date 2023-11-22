@@ -13,7 +13,7 @@ const axiosPublic = useAxiosPublic()
 
 const [user,setUser] = useState(null)
 const [loading,setLoading] = useState(true)
-
+const [enableFetch,setEnableFetch] = useState(false)
 const createUser = (email,password)=>{
     setLoading(true)
    return createUserWithEmailAndPassword(auth, email, password);
@@ -49,12 +49,17 @@ useEffect(()=>{
             axiosPublic.post('/jwt',userInfo)
             .then(res=>{
                 
-                localStorage.setItem('token', res.data.token);
+                localStorage
+                  .setItem("token", res.data.token)
+                 setLoading(false);
+                 setEnableFetch(true)
             })
         }else{
             localStorage.removeItem('token')
+             setLoading(false);
+              setEnableFetch(false);
         }
-        setLoading(false)
+       
     })
     return ()=> {
         return unsubscribe()
@@ -62,7 +67,7 @@ useEffect(()=>{
 },[])
    
 const info = {
-    user,loading,createUser,login,logout,googleLogin
+    user,loading,createUser,login,logout,googleLogin,enableFetch
 }
 
 

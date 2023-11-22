@@ -5,13 +5,15 @@ import useContextInfo from './useContextInfo';
 
 const usePaymentHistory = () => {
     const axiosSecure = useAxiosSecure()
-    const {user} = useContextInfo()
-    const { data:paymentHistory=[] } = useQuery({
-      queryKey: "paymentHistory",
+    const { user, loading } = useContextInfo();
+    const { data: paymentHistory = [] } = useQuery({
+      queryKey: ["paymentHistory"],
+      enabled: user ? !loading : false,
       queryFn: async () => {
-        if(!user) return []
-        const res = await axiosSecure.get(`/paymentHistory/?email=${user.email}`)
-        return res.data
+        const res = await axiosSecure.get(
+          `/paymentHistory/?email=${user.email}`
+        );
+        return res.data;
       },
     });
     return [paymentHistory];

@@ -57,7 +57,7 @@ const PaymentHistory = () => {
                     <td>
                       <h4 className="text-lg">Food Order</h4>
                     </td>
-                    <td>${item.amount}</td>
+                    <td>${item.amount.toFixed(2)}</td>
                     <td>{convertedDate(item.date)}</td>
                     <td>{item.transactionId}</td>
                     <td>{item.status}</td>
