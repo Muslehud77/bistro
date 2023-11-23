@@ -65,6 +65,10 @@ export const router = createBrowserRouter([
           </Private>
         ),
       },
+      {
+        path: "/contact",
+        element: <h1 className='mt-56'>Soon</h1>,
+      },
     ],
   },
   {
@@ -91,6 +95,19 @@ export const router = createBrowserRouter([
         path: "/dashboard/payment-history",
         element: <PaymentHistory></PaymentHistory>,
       },
+      {
+        path: "/dashboard/reservation",
+        element: <h1>Reservation</h1>,
+      },
+      {
+        path: "/dashboard/review",
+        element: <h1>review</h1>,
+      },
+      {
+        path: "/dashboard/user-booking",
+        element: <h1>booking</h1>,
+      },
+
       //admin routes
       {
         path: "/dashboard/admin-home",
@@ -130,6 +147,15 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <EditItem></EditItem>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manage-bookings",
+
+        element: (
+          <AdminRoute>
+            <h1>Bookings</h1>
           </AdminRoute>
         ),
       },

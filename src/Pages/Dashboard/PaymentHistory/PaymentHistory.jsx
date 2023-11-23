@@ -28,7 +28,7 @@ const PaymentHistory = () => {
 
         <div className="flex justify-between">
           <h2 className="text-3xl mt-2">
-            Total Payments: {paymentHistory.length}
+            Total Payments: {paymentHistory?.length}
           </h2>
         </div>
 
@@ -49,7 +49,7 @@ const PaymentHistory = () => {
               </thead>
               <tbody>
                 {paymentHistory.map((item, i) => (
-                  <tr key={item._id}>
+                  <tr key={item?._id}>
                     <th>{i + 1}</th>
                     <td>
                       <h4 className="text-lg">{item.email}</h4>
@@ -57,10 +57,10 @@ const PaymentHistory = () => {
                     <td>
                       <h4 className="text-lg">Food Order</h4>
                     </td>
-                    <td>${item.amount.toFixed(2)}</td>
-                    <td>{convertedDate(item.date)}</td>
-                    <td>{item.transactionId}</td>
-                    <td>{item.status}</td>
+                    <td>${item?.amount}</td>
+                    <td>{convertedDate(item?.date)}</td>
+                    <td>{item?.transactionId}</td>
+                    <td>{item?.status}</td>
                   </tr>
                 ))}
               </tbody>

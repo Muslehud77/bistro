@@ -81,7 +81,7 @@ const handleSubmit = async e =>{
       const payment = {
         name: user?.displayName || 'anonymous',
         email: user?.email || 'anonymous',
-        amount : parseFloat(amount).toFixed(2),
+        amount : parseInt(amount).toFixed(2),
         transactionId:paymentIntent.id,
         date:new Date(),
         cartIds : cart.map(item=>item._id),

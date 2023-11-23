@@ -129,7 +129,7 @@ const AdminHome = () => {
            </div>
          </div>
        </div>
-       <div className="flex">
+       <div className="md:flex">
          <div className="w-1/2">
            <BarChart
              width={500}

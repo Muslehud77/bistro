@@ -21,7 +21,7 @@ const useStats = () => {
         enabled:enableFetch,
         queryFn: async ()=>{
             const res = await axiosSecure.get("/items-sold")
-            const soldItems = res.data.map(item => ({...item,revenue:item.revenue.toFixed(2)}));
+            
      
             return res.data;
         }
