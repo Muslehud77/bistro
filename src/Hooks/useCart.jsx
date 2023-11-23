@@ -16,7 +16,10 @@ const { data: cart = [], refetch } = useQuery({
   },
 });
 
- const amount = cart.reduce((total, item) => total + item.price, 0).toFixed(2);
+ const amount = parseFloat(
+   cart.reduce((total, item) => total + item.price, 0)
+ );
+ 
  return [cart,refetch,amount]
 };
 
